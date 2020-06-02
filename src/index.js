@@ -55,6 +55,16 @@ app.use("/day", dayRoutes(databaseHelperFunctions));
 // // Serve any static files
 app.use(express.static(path.join(__dirname, '../client/build')))
 
+// // The "catchall" handler: for any request that doesn't
+// // match those above, send back React's index.html file.
+app.get('*', function (_, res) {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'), function (err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+})
+
 // ******************** REGISTER, LOGIN, LOGOUT ********************
 app.put("/register", function (req, res) {
   // create & store user info
