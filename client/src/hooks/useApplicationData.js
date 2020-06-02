@@ -6,7 +6,7 @@ import SearchResult from "../components/SearchResult";
 import RecipeCard from "../components/RecipeCard";
 import io from "socket.io-client";
 // socket declaration
-export const socket = io(process.env.REACT_APP_WEBSOCKET_URL);
+export const socket = io();
 const dbId = process.env.REACT_APP_FOOD_DATABASE_ID;
 const dbKey = process.env.REACT_APP_FOOD_DATABASE_KEY;
 const recipeApiId = process.env.REACT_APP_RECIPE_SEARCH_ID;
