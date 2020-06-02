@@ -1,0 +1,202 @@
+$primary-colour: #2c6b68;
+$secondary-colour: #ffffff;
+$primary-font: monospace, cursive;
+
+.recipe-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  .including-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 2% auto;
+    background-color: $secondary-colour;
+    border-radius: 10px;
+    button {
+      margin-top: 2rem;
+      padding: 7px 13px;
+    }
+    .recipe-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      .recipe-image-and-graph {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: $secondary-colour;
+        width: 100%;
+        .recipe-image {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          position: relative;
+          img {
+            border-radius: 5px;
+            max-height: 40vh;
+            max-width: 100%;
+            margin: 1rem;
+          }
+          button {
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            background: transparent;
+            color: #ffffff;
+            border-radius: 10px;
+            padding: 7px 13px;
+            border: 1px solid transparent;
+            font-weight: bold;
+            font-size: 1.6rem;
+            &:hover {
+              color: salmon;
+            }
+          }
+        }
+        .ingredient-data {
+          margin: 25px 0;
+          .ingredient-graph-container {
+            .left-graph {
+              width: 52%;
+            }
+            .right-graph {
+              width: 25%;
+            }
+            .calories-graph {
+              width: 18%;
+            }
+          }
+        }
+      }
+    }
+  }
+  .instruction-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #ffffff;
+    width: 100%;
+    h2 {
+      color: $primary-colour;
+    }
+    .instructions-and-link {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      margin-left: 3rem;
+      .ingredients {
+        li {
+          font-size: 1.6rem;
+          margin-bottom: 0.5rem;
+        }
+      }
+      .recipe-link {
+        h3 {
+          font-size: 1.6rem;
+          margin-bottom: 3em;
+        }
+      }
+    }
+    .addtoschedule {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 15vh;
+      h3 {
+        font-size: 1.6rem;
+        color: $primary-colour;
+      }
+      .recipe-button-container {
+        margin-top: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        button {
+          margin: 0.5rem 0;
+          color: white;
+          border-radius: 10px;
+          padding: 7px 13px;
+          border: 1px solid transparent;
+          font-weight: bold;
+        }
+        .add button {
+          background-color: #007bff;
+          &:hover {
+            background-color: salmon;
+            color: $secondary-colour;
+          }
+        }
+        .cancel button {
+          background-color: #a0d0ce;
+          margin-left: 1em;
+          &:hover {
+            background-color: salmon;
+          }
+        }
+      }
+    }
+    .prep-time {
+      display: flex;
+      justify-content: left;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .recipe-container {
+    .including-link {
+      width: 95%;
+      button {
+        margin-top: 14px;
+      }
+      .recipe-header {
+        .recipe-image-and-graph {
+          flex-direction: column;
+          h2 {
+            margin: 0;
+          }
+          .recipe-image {
+            img {
+              margin: 14px 0 0;
+            }
+          }
+          .ingredient-data {
+            margin: 0;
+            padding: 10px 0 0;
+            .ingredient-graph-container {
+              height: 16em;
+              .left-graph {
+                height: 15em;
+                width: 52%;
+              }
+              .right-graph {
+                height: 15em;
+                width: 26%;
+              }
+              .calories-graph {
+                height: 15em;
+                width: 18.5%;
+              }
+            }
+          }
+        }
+      }
+      .instruction-info {
+        h3 {
+          margin: 0 0 7px;
+        }
+        .instructions-and-link {
+          margin: 7px 0 0;
+        }
+      }
+    }
+  }
+}
