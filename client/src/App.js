@@ -26,6 +26,7 @@ function App() {
           <Route path="/data" exact component={MacroGraph} />
           <Route path="/register" exact component={Register} />
           <Route path="/faq" exact component={FAQ} />
+          <Route render={() => <Redirect to={{ pathname: "/" }} />} />
         </Switch>
       </div>
     </Router>
