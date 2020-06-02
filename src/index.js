@@ -1,9 +1,8 @@
 // load .env data into process.env
-require("dotenv").config();
+require('dotenv').config({ silent: true });
 
 // Web server config
 const PORT = process.env.PORT || 8008;
-const ENV = process.env.ENV || "development";
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
@@ -13,11 +12,10 @@ const server = require("http").Server(app);
 const cookieSession = require("cookie-session");
 const bcrypt = require("bcrypt");
 const io = require("socket.io")(server);
+const path = require('path');
 
 // listen for socket connection
 io.on("connection", client => {
-  console.log("A user connected");
-  // when receiving this message type, emit update message
   client.on("new", () => {
     io.emit("update");
   });
@@ -43,11 +41,6 @@ app.use(
   })
 );
 
-// on the request to root (localhost:8008)
-app.get("/", function (req, res) {
-  res.send("We out here!");
-});
-
 // Separated routes on functionality
 const userRoutes = require("../routes/user");
 const favRoutes = require("../routes/favourites");
@@ -58,6 +51,19 @@ app.use("/user", userRoutes(databaseHelperFunctions));
 app.use("/favourites", favRoutes(databaseHelperFunctions));
 app.use("/recipe", recipeRoutes(databaseHelperFunctions));
 app.use("/day", dayRoutes(databaseHelperFunctions));
+
+// // Serve any static files
+app.use(express.static(path.join(__dirname, '../client/build')))
+
+// // The "catchall" handler: for any request that doesn't
+// // match those above, send back React's index.html file.
+app.get('*', function (_, res) {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'), function (err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+})
 
 // ******************** REGISTER, LOGIN, LOGOUT ********************
 app.put("/register", function (req, res) {
