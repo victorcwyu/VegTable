@@ -351,7 +351,7 @@ module.exports = (db) => {
     return db
       .query(
         `INSERT INTO recipes (name, calories, fat_in_g, carbs_in_g, protein_in_g, sugar_in_g, fiber_in_g, cholesterol_in_mg, sodium_in_mg, image_url, recipe_yield)
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)`,
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) ON CONFLICT DO NOTHING/UPDATE`,
         [
           recipeName,
           calories,
