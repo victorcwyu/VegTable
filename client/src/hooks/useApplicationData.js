@@ -22,7 +22,6 @@ export default function useApplicationData() {
   // connect socket
   useEffect(() => {
     socket.on("connect", () => {
-      console.log("is socket connected?", socket.connected);
     });
   }, []);
   // display raw ingredient search results from home page

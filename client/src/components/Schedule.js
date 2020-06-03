@@ -65,7 +65,6 @@ function Schedule() {
         [days[newday[5]]]: res[5].data,
         [days[newday[6]]]: res[6].data,
       };
-      console.log(obj);
       setSchedule(obj);
     });
   };

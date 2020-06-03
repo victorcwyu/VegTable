@@ -110,8 +110,7 @@ export default function Recipe({ match }) {
       })
       .then((result) => {
         console.log(result.data);
-        socket.emit("new", (data) => {
-          console.log("Socket sending from addrecipeTOday", data);
+        socket.emit("new", () => {
         });
         setDate("");
       })

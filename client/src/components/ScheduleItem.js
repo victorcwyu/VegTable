@@ -10,8 +10,7 @@ function ScheduleItem(props) {
       .post("/day/delete", { dateId: id })
       .then((result) => {
         // send message to server to update data
-        socket.emit("new", (data) => {
-          console.log("From the delete function socket", data);
+        socket.emit("new", () => {
         });
         props.setUpdate(result);
       })

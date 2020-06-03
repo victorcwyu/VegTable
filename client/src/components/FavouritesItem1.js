@@ -31,8 +31,7 @@ const FavouritesItem1 = (props) => {
         recipeId: `${recipeId}`,
       })
       .then((result) => {
-        socket.emit("new", (data) => {
-          console.log("Socket sending from addrecipe", data);
+        socket.emit("new", () => {
         });
         setDate(null);
       })
