@@ -2,7 +2,11 @@
 
 VegTable is an analytics driven meal-planning application built with React that allows users to schedule meals and track their nutritional intake using data retrieved from the Edamam API.  
 
+[Click here](https://vegtable.xyz/) to view the live version of this app.
+
 Graphs are rendered with Recharts and Socket IO is utilized to observe real-time changes to graph data.
+
+VegTable was created by [Steven Choi](https://github.com/stevencschoi), [Marco Siu](https://github.com/Pulse6) and [Victor Yu](https://github.com/victorcwyu).
 
 ## Preview
 
